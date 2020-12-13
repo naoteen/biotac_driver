@@ -20,7 +20,7 @@ ExternalProject_Add(
 
 add_custom_target(
   copy_cheetah ALL
-  COMMAND cmake -E copy ${CMAKE_CURRENT_BINARY_DIR}/src/cheetah_/cheetah.so ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_LIB_DESTINATION}/cheetah.so)
+  COMMAND cmake -E copy ${CMAKE_CURRENT_BINARY_DIR}/src/cheetah_/c/cheetah.so ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_LIB_DESTINATION}/cheetah.so)
 
 
 add_dependencies(copy_cheetah cheetah_)
