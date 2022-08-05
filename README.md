@@ -12,17 +12,6 @@ The following instructions are from the README.md file in the **Penn-haptics-bol
 Installing 
 ---------------------------------------------
 
-### Cheetah USB rules ###
-In order to be able to read the Biotac data via the Cheetah SPI-USB board you first have to copy the udev rules
-
-1. Download the Cheetah SPI board drivers tp-usb-drivers-v2.10.zip from http://www.totalphase.com/products/cheetah_spi/
- 
-2. Unzip the folder
-    unzip tp-usb-drivers-v2.10.zip
-
-3. Copy the udev rules
-    sudo cp tp-usb-drivers-v2.10/linux/99-totalphase.rules /etc/udev/rules.d/
-
 ### ROS package installation ###
 
 After copying the Cheetah udev rules you can download and compile the ROS package. Also make sure you have a working catkin workspace (look at the ROS tutorials).
@@ -30,19 +19,8 @@ After copying the Cheetah udev rules you can download and compile the ROS packag
 Download the package to the catkin workspace:
 
     cd ~/catkin_ws/src/
-    git clone -b <ros_distro> https://github.com/kth-ros-pkg/biotac_driver.git
-
-Where `<ros-distro>` can be the **groovy** or **hydro** branch.
-
-Otherwise you can use ROS's **wstool**:
-
-    cd ~/catkin_ws/src/
-    wstool init
-    wstool set biotac_driver --git https://github.com/kth-ros-pkg/biotac_driver.git -v <ros_distro>
-    wstool update biotac_driver
-
-Then compile the workspace:
-
+    git clone -b noetic https://github.com/kth-ros-pkg/biotac_driver.git
+    cp 99-totalphase.rules /etc/udev/rules.d/
     cd ~/catkin_ws && catkin_make
 
 Electrical connections
